@@ -11,6 +11,7 @@ import { addToFavorites } from '../../../redux/favoritesSlice'
 import { useDispatch } from "react-redux";
 import { filterCard } from '../../../helpers/sortingFilter';
 import { useNavigate } from "react-router-dom";
+import GenericScelecton from "../../Generic/Sceleton";
 
 const PhoneGatjed = () => {
   const [shopData, setShopData] = useState([]);
@@ -18,9 +19,10 @@ const PhoneGatjed = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Axios.getAll().then((res) => {
-      setShopData(res);
-    })
+    const fetchData = async () => {
+      await Axios.getAll().then((res) => setShopData(res));
+    };
+    fetchData();
   }, []);
 
   const mumarr = [12, 24, 48, 60];
@@ -52,7 +54,7 @@ const PhoneGatjed = () => {
           Telefon va Gadjetlar
         </Typography>
         <Box sx={{ display: "flex", columnGap: 1, ml: "auto" }}>
-              <MySelectButton
+          <MySelectButton
             options={mumarr}
             selectedindex={numSlice}
             setselectedindex={setNumSlice}
@@ -71,25 +73,37 @@ const PhoneGatjed = () => {
         columnSpacing={{ xs: 1, sm: 2, md: 2 }}
         sx={{ mt: 1 }}
       >
-        {filterData.slice(0, numSlice).map((ele, id) => (
-          <Grid item xs={6} sm={4} md={4} lg={3} key={id}>
-            <GenericCard
-              img1={ele.img}
-              title1={ele.name}
-              sharxi={ele.comment}
-              birinchinarxi={ele.birinchiNarxi}
-              narxi={ele.narxi}
-              kreditnarxi={ele.kreditNarxi}
-              chegirma={ele.category}
-              yangi={ele.category2}
-              clickbasket={() =>  dispatch(addToBasket(ele))}
-              clickfavorites={() => dispatch(addToFavorites(ele))}
-              clickproduct={() => handleEdit(ele?.id, "/product")}
-              clickpayments={() => handleEdit(ele?.id, "/order")}
-              productdata={ele}
-            />
-          </Grid>
-        ))}
+        {shopData.length > 0 ?
+          <>
+            {filterData.slice(0, numSlice).map((ele, id) => (
+              <Grid item xs={6} sm={4} md={4} lg={3} key={id}>
+                <GenericCard
+                  img1={ele.img}
+                  title1={ele.name}
+                  sharxi={ele.comment}
+                  birinchinarxi={ele.birinchiNarxi}
+                  narxi={ele.narxi}
+                  kreditnarxi={ele.kreditNarxi}
+                  chegirma={ele.category}
+                  yangi={ele.category2}
+                  clickbasket={() => dispatch(addToBasket(ele))}
+                  clickfavorites={() => dispatch(addToFavorites(ele))}
+                  clickproduct={() => handleEdit(ele?.id, "/product")}
+                  clickpayments={() => handleEdit(ele?.id, "/order")}
+                  productdata={ele}
+                />
+              </Grid>
+            ))}
+          </>
+          :
+          <>
+            {Array.from(new Array(numSlice)).map(() => (
+              <Grid item xs={6} sm={4} md={4} lg={3}>
+                <GenericScelecton />
+              </Grid>
+            ))}
+          </>
+        }
       </Grid>
     </Box>
   );

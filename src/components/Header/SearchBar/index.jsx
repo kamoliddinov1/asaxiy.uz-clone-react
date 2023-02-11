@@ -15,7 +15,7 @@ const SearchBar = () => {
   const [filData, setFilData] = useState([]);
   let data = Concat();
 
-  const handleSubmit  = (event) => {
+  const handleSubmit = (event) => {
     const searchWord = event.target.value;
     let newFilter = data.filter((value) => {
       return value.name.toLowerCase().includes(searchWord.toLowerCase());
@@ -27,10 +27,10 @@ const SearchBar = () => {
       setFilData(newFilter);
     }
   };
-  
+
   const handleEdit = () => {
     if (filData.length != 0) {
-      navigate("/searchcart", { state: { filData }});
+      navigate("/searchcart", { state: { filData } });
       setFilData([]);
     }
   };

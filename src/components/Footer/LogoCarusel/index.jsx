@@ -48,7 +48,7 @@ const LogoCarusel = () => {
     >
       <Swiper
         className="mySwiper"
-        slidesPerView={8}
+        slidesPerView={"auto"}
         spaceBetween={30}
         loop={true}
         autoplay={{
@@ -64,11 +64,11 @@ const LogoCarusel = () => {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                width: "60%",
+                width: "60px",
                 p: "10px 0px",
               }}
             >
-              <img sx={{ width: "100%" }} src={ele.img} alt="logo" />
+              <img  src={ele.img} alt="logo" />
             </Box>
           </SwiperSlide>
         ))}

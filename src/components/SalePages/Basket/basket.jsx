@@ -92,7 +92,7 @@ const Menubasket = () => {
               </Typography>
               <Box sx={{ display: "flex", alignItems: "center", ml: "auto" }}>
                 <Typography sx={{ fontSize: "12px", fontWeight: "600" }}>
-                  {val.narxi} so'm
+                  {val.narxi.toLocaleString()} so'm
                 </Typography>
                 <CloseIcon
                   fontSize="12px"
@@ -114,7 +114,7 @@ const Menubasket = () => {
               Jami:
             </Typography>
             <Typography sx={{ fontSize: "14px", fontWeight: "500" }}>
-              {sumKerdit.totalPrice} so'm
+              {sumKerdit.totalPrice.toLocaleString()} so'm
             </Typography>
           </Box>
           <Box mt={2}>

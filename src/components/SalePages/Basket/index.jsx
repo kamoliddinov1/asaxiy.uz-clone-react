@@ -46,11 +46,11 @@ const Basket = () => {
                 Jami miqdor:
               </Typography>
               <Typography variant="h5" sx={{ fontWeight: "550", mt: 2 }}>
-                {sumBasket.totalPrice} so'm
+                {sumBasket.totalPrice.toLocaleString()} so'm
               </Typography>
               <Divider sx={{ mt: 2 }} />
               <Button
-               onClick={() => navigate("/order")}
+                onClick={() => navigate("/order")}
                 variant="contained"
                 color="warning"
                 sx={{
@@ -72,11 +72,11 @@ const Basket = () => {
                 Oylik to'lov
               </Typography>
               <Typography variant="h5" sx={{ fontWeight: "500", mt: 2 }}>
-                {sumKredit.totalPrice} so'm / 12 oy
+                {sumKredit.totalPrice.toLocaleString()} so'm / 12 oy
               </Typography>
               <Divider sx={{ mt: 2 }} />
               <ButtonRassrochkaPage
-                productdata={{narxi : sumKredit.totalPrice}}
+                productdata={{ narxi: sumKredit.totalPrice }}
                 variant="contained"
                 color="warning"
                 sx={{
@@ -242,13 +242,13 @@ const Basket = () => {
                           <Typography
                             sx={{ fontSize: "12px", textAlign: "center" }}
                           >
-                            {ele.birinchiNarxi > "1" &&
-                              ele.birinchiNarxi + " " + "so'm"}
+                            {ele.birinchiNarxi.toLocaleString() > "1" &&
+                              ele.birinchiNarxi.toLocaleString() + " " + "so'm"}
                           </Typography>
                           <Typography
                             sx={{ fontSize: "12px", textAlign: "center" }}
                           >
-                            {ele.narxi} so'm
+                            {ele.narxi.toLocaleString()} so'm
                           </Typography>
                         </div>
                       ) : (
@@ -261,8 +261,8 @@ const Basket = () => {
                               color: "#AF5679",
                             }}
                           >
-                            {ele.birinchiNarxi > "1" &&
-                              ele.birinchiNarxi + " " + "so'm"}
+                            {ele.birinchiNarxi.toLocaleString() > "1" &&
+                              ele.birinchiNarxi.toLocaleString() + " " + "so'm"}
                           </Typography>
                           <Typography
                             sx={{
@@ -271,7 +271,7 @@ const Basket = () => {
                               fontWeight: "600",
                             }}
                           >
-                            {ele.narxi} so'm
+                            {ele.narxi.toLocaleString()} so'm
                           </Typography>
                           <Typography
                             sx={{
@@ -282,7 +282,7 @@ const Basket = () => {
                               mt: 1,
                             }}
                           >
-                            {ele.kreditNarxi} so'm / 12 oy
+                            {ele.kreditNarxi.toLocaleString()} so'm / 12 oy
                           </Typography>
                         </div>
                       )}

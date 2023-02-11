@@ -11,6 +11,7 @@ import { addToFavorites } from "../../../redux/favoritesSlice";
 import { Concat } from "../../../helpers/concat";
 import { filterCard } from "../../../helpers/sortingFilter";
 import { useNavigate } from "react-router-dom";
+import GenericScelecton from "../../Generic/Sceleton";
 
 const NewcomersCart = () => {
   const dispatch = useDispatch();
@@ -64,6 +65,8 @@ const NewcomersCart = () => {
         columnSpacing={{ xs: 1, sm: 2, md: 2 }}
         sx={{ mt: 1 }}
       >
+        {filterData.length > 0 ?
+        <>
         {filterData
           .filter((val) => val.category2 == "yangi")
           ?.slice(0, numSlice)
@@ -86,6 +89,16 @@ const NewcomersCart = () => {
               />
             </Grid>
           ))}
+          </>
+          :
+          <>
+          {Array.from(new Array(numSlice)).map(() => (
+            <Grid item xs={6} sm={4} md={4} lg={3}>
+              <GenericScelecton />
+            </Grid>
+          ))}
+        </>
+          }
       </Grid>
     </Box>
   );

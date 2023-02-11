@@ -20,7 +20,7 @@ export default () => {
       });
     }, [])
 
-    admin = data.role === "admin" && data.username === "admin" ? true : false;
+    admin = data.role === "admin" && data.password === "admin" ? true : false;
   }
 
   const publicUser = token ? false : true;

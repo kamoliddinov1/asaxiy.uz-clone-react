@@ -30,6 +30,8 @@ const MobileDirectory = () => {
     setOpen(false);
   };
 
+
+
   return (
     <div>
       <IconButton
@@ -82,7 +84,7 @@ const MobileDirectory = () => {
           >
             <List>
               {data.map((ele, id) => (
-                <ListItem key={id} disablePadding component={Link} to={ele.link} sx={{color:'black'}}>
+                <ListItem key={id} disablePadding component={Link} to={ele.link} onClick={handleClose} sx={{color:'black'}}>
                   <ListItemButton
                     sx={{ columnGap: 1, ":active": { background: "white" } }}
                   >

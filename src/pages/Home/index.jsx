@@ -9,13 +9,12 @@ import HomePage from '../../components/CartPage/HomeCard/Pages';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () => (
-  <Box sx={{rowGap: 3}}>
+  <Box sx={{ rowGap: 3 }}>
     <Banner />
-    <HomePage/>
-    <ContainerStComp>
-      <Sidebar/>
+    <HomePage />
+    <>
       <HomeCard />
-    </ContainerStComp>
-    <Asaxiy/>
+    </>
+    <Asaxiy />
   </Box>
 );

@@ -7,11 +7,12 @@ import Axios from "../../../services/kitob";
 import GenericCard from "../GenericCard";
 import MySelectButton from "../../Generic/SelectButton";
 import AsaxiyBooks from "./AsaxiyBooks";
-import { addToBasket } from '../../../redux/cartSlice';
-import { addToFavorites } from '../../../redux/favoritesSlice';
+import { addToBasket } from "../../../redux/cartSlice";
+import { addToFavorites } from "../../../redux/favoritesSlice";
 import { useDispatch } from "react-redux";
-import { filterCard } from '../../../helpers/sortingFilter';
+import { filterCard } from "../../../helpers/sortingFilter";
 import { useNavigate } from "react-router-dom";
+import GenericScelecton from "../../Generic/Sceleton";
 
 const BooCard = () => {
   const [shopData, setShopData] = useState([]);
@@ -19,8 +20,10 @@ const BooCard = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Axios.getAll().then((res) => {setShopData(res)});
-    // axios.get("https://63b5843d0f49ecf508a79204.mockapi.io/api/v1/telefonlar").then((res) => setShopData(res.data));
+    const fetchData = async () => {
+      await Axios.getAll().then((res) => setShopData(res));
+    };
+    fetchData();
   }, []);
 
   const mumarr = [12, 24, 48, 60];
@@ -70,25 +73,37 @@ const BooCard = () => {
         columnSpacing={{ xs: 1, sm: 2, md: 2 }}
         sx={{ mt: 1 }}
       >
-        {filterData?.slice(0, numSlice).map((ele, id) => (
-          <Grid item xs={6} sm={4} md={4} lg={3} key={id}>
-            <GenericCard
-              img1={ele.img}
-              title1={ele.name}
-              sharxi={ele.comment}
-              birinchinarxi={ele.birinchiNarxi}
-              narxi={ele.narxi}
-              kreditnarxi={ele.kreditNarxi}
-              chegirma={ele.category}
-              yangi={ele.category2}
-              clickbasket={() =>  dispatch(addToBasket(ele))}
-              clickfavorites={() => dispatch(addToFavorites(ele))}
-              clickproduct={() => handleEdit(ele?.id, "/product")}
-              clickpayments={() => handleEdit(ele?.id, "/order")}
-              productdata={ele}
-            />
-          </Grid>
-        ))}
+        {shopData.length > 0 ? (
+          <>
+            {filterData?.slice(0, numSlice).map((ele, id) => (
+              <Grid item xs={6} sm={4} md={4} lg={3} key={id}>
+                <GenericCard
+                  img1={ele.img}
+                  title1={ele.name}
+                  sharxi={ele.comment}
+                  birinchinarxi={ele.birinchiNarxi}
+                  narxi={ele.narxi}
+                  kreditnarxi={ele.kreditNarxi}
+                  chegirma={ele.category}
+                  yangi={ele.category2}
+                  clickbasket={() => dispatch(addToBasket(ele))}
+                  clickfavorites={() => dispatch(addToFavorites(ele))}
+                  clickproduct={() => handleEdit(ele?.id, "/product")}
+                  clickpayments={() => handleEdit(ele?.id, "/order")}
+                  productdata={ele}
+                />
+              </Grid>
+            ))}
+          </>
+        ) : (
+          <>
+            {Array.from(new Array(numSlice)).map(() => (
+              <Grid item xs={6} sm={4} md={4} lg={3}>
+                <GenericScelecton />
+              </Grid>
+            ))}
+          </>
+        )}
       </Grid>
       <AsaxiyBooks />
     </Box>
