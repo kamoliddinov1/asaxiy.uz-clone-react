@@ -37,11 +37,9 @@ const SearchBar = () => {
 
   const handleProduct = (row) => {
     const product = filData.find((item) => item.id === row);
-    navigate("/maxsulot", { state: { product } });
+    navigate("/product", { state: { product } });
     setFilData([]);
   };
-
-
 
   return (
     <div style={{ width: "100%" }}>

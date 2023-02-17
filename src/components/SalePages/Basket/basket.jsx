@@ -31,7 +31,7 @@ const Menubasket = () => {
 
   const handleEdit = (row) => {
     const product = basketData.find((item) => item.id === row);
-    navigate("/maxsulot", { state: { product } });
+    navigate("/product", { state: { product } });
     setAnchorEl(null);
   };
 

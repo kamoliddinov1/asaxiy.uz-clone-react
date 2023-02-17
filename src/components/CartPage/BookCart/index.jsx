@@ -14,6 +14,9 @@ import { filterCard } from "../../../helpers/sortingFilter";
 import { useNavigate } from "react-router-dom";
 import GenericScelecton from "../../Generic/Sceleton";
 
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
+
 const BooCard = () => {
   const [shopData, setShopData] = useState([]);
   const navigate = useNavigate();
@@ -105,6 +108,14 @@ const BooCard = () => {
           </>
         )}
       </Grid>
+      <ButtonGroup
+      disableElevation
+      variant="contained"
+      aria-label="Disabled elevation buttons"
+    >
+      <Button>prev</Button>
+      <Button>next</Button>
+    </ButtonGroup>
       <AsaxiyBooks />
     </Box>
   );

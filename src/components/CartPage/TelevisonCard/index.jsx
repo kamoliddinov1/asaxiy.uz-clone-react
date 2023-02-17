@@ -12,7 +12,7 @@ import { filterCard } from '../../../helpers/sortingFilter';
 import { useNavigate } from "react-router-dom";
 import GenericScelecton from "../../Generic/Sceleton";
 
-const TelevizorCard = () => {
+const TelevisonCard = () => {
   const [shopData, setShopData] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -106,4 +106,4 @@ const TelevizorCard = () => {
     </Box>
   );
 };
-export default TelevizorCard;
+export default TelevisonCard;

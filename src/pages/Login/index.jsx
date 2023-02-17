@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Imagelog from '../../assets/forgot-password.webp'
+import Imglog from '../../assets/Login.webp'
 import Login from './Login';
 
 const LoginPage = () => {
@@ -11,9 +12,9 @@ const LoginPage = () => {
         <Grid item xs={12} sm={5}>
           <Login />
         </Grid>
-        <Grid item xs={12} sm={7} sx={{display:{xs:'none', sm:'flex'}}}>
+        <Grid item xs={12} sm={7} sx={{ display: { xs: 'none', sm: 'flex' } }}>
           <Box>
-          <img width='100%' src="https://plugins.miniorange.com/wp-content/uploads/2022/09/hero-img-2.webp" alt="#" />
+            <img width='100%' src={Imglog} alt="#" />
           </Box>
         </Grid>
       </Grid>

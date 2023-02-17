@@ -18,7 +18,7 @@ const SignupForm = () => {
   const [loading, setloading] = useState(false);
 
   const data = {
-    fullname : "",
+    fullname: "",
     username: "",
     password: "",
     role: "",
@@ -45,15 +45,14 @@ const SignupForm = () => {
 
     onSubmit: (values) => {
       // eslint-disable-next-line no-lone-blocks
-
-      service
-        .getToken(values)
-        .then((res) => {
-          if (res) {
-            dispatch(setToken(JSON.stringify(res.id)));
+      service.getToken(values).then((res) => {
+        if (res) {
+          dispatch(setToken(JSON.stringify(res.id)));
+          setTimeout(() => {
             window.location.reload(false);
-          }
-        })
+          }, 1000)
+        }
+      })
         .catch((err) => {
           console.log(err);
           setFound(true);

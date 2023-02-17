@@ -195,11 +195,11 @@ const ShopCard = ({
                 display: "block",
               }}
             >
-              {birinchinarxi > "0" && `${birinchinarxi.toLocaleString()} so'm`}
+              {birinchinarxi > "0" && `${birinchinarxi?.toLocaleString()} so'm`}
             </Typography>
-            <Typography sx={{ fontWeight: "550" }}>{narxi.toLocaleString()} so'm</Typography>
+            <Typography sx={{ fontWeight: "550" }}>{narxi?.toLocaleString()} so'm</Typography>
             <Typography variant="body2" sx={{ fontWeight: "550" }}>
-              {kreditnarxi.toLocaleString()} so'm/12oy
+              {kreditnarxi?.toLocaleString()} so'm/12oy
             </Typography>
           </Box>
         </div>

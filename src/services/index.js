@@ -3,6 +3,7 @@ import axios from "axios";
 // const baseURL = process.env.REACT_APP_API_URL;
 const baseURL = "https://asaxiyuz.onrender.com";
 
+console.log(baseURL);
 const service = axios.create({
   baseURL,
   headers: {
