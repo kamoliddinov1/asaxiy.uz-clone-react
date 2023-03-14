@@ -6,7 +6,7 @@ export const ContainerGrid = styled.div`
   column-gap: 4vh;
   row-gap: 4vh;
   margin-top: 3%;
-  @media (max-width: 320px) {
+  @media (max-width: 425px) {
     display: grid;
     grid-template-columns: 100%;
   };
