@@ -79,7 +79,7 @@ const MyAppBar = () => {
             <Grid item xs={3}>
               <IconButton
                 LinkComponent={NavLink}
-                to="/savatcha"
+                to="/basket"
                 sx={{ m: "0px 10px", ":hover": { color: "#008DFF" } }}
                 size="small"
                 aria-label="show 4 new mails"
